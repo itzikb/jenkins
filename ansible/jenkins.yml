@@ -2,7 +2,15 @@
 - name: Installing Jenkins
   hosts: localhost
   pre_tasks:
-    - package: wget git virtualenv python-pip libffi-devel gcc redhat-rpm-config openssl-devel
+    - package: 
+      - wget
+      - git
+      - virtualenv
+      - python-pip
+      - libffi-devel
+      - gcc
+      - redhat-rpm-config
+      - openssl-devel
     - include_vars: plugins.yml
   roles:
      - { role: geerlingguy.jenkins, jenkins_plugins: "{{ plugins }}" }
